@@ -1,0 +1,7 @@
+
+CREATE TABLE log (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	customer_id INTEGER,
+	status STRING
+);
+
