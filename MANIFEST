@@ -1,0 +1,11 @@
+etc/config.json
+lib/DBIx/Class/Statim.pm
+Makefile.PL
+MANIFEST			This list of files
+t/basic.t
+t/tlib/sqlite.sql
+t/tlib/StatimTest/Schema.pm
+t/tlib/StatimTest/Schema/Log.pm
+t/tlib/Test/SpawnRedisServer.pm
+t/tlib/Test/Statim/Runner.pm
+t/var/test.db

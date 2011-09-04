@@ -7,6 +7,8 @@ use warnings;
 use base qw( DBIx::Class );
 use Statim::Client;
 
+our $VERSION = '0.0001';
+
 __PACKAGE__->mk_classdata( 'statim_host' => '127.0.0.1' );
 __PACKAGE__->mk_classdata( 'statim_port' => 0 );
 __PACKAGE__->mk_classdata( 'statim_collection' => 'collection' );

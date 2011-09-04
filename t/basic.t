@@ -36,36 +36,13 @@ test_tcp(
         my $schema = StatimTest::Schema->connect();
         my $log    = $schema->resultset('Log');
 
-        {
-            $log->create(
-                {
-                    customer_id => 1,
-                    status      => 'OK',
-                }
-            );
+        $log->create( { customer_id => 1, status => 'OK', } );
+        $log->create( { customer_id => 1, status => 'OK' } );
 
-        }
+        my $statim = Statim::Client->new( { host => '127.0.0.1', port => $port } );
 
-        {
-            $log->create(
-                {
-                    customer_id => 1,
-                    status      => 'OK'
-                }
-            );
-        }
-
-        my $statim = Statim::Client->new(
-            {
-                host => '127.0.0.1',
-                port => $port
-            }
-        );
-
-        {
-            my $ret = $statim->get( 'log', 'customer_id:1', 'status:OK', 'entry' );
-            is $ret, "OK 2\r\n";
-        }
+        my $ret = $statim->get( 'log', 'customer_id:1', 'status:OK', 'entry' );
+        is $ret, "OK 2\r\n";
     }
 );
 
